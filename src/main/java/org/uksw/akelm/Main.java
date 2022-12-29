@@ -16,11 +16,11 @@ public class Main {
                 System.out.println(n);
                 for (int ttl : ttlArray) {
                     for (int d : dArray) {
-                        new ManhattanGraph(n, ttl, envSize, d, false, nbParallelStreets).moveAndBroadcast();
-                        new RWPGraph(n, ttl, envSize, d, false).moveAndBroadcast();
+                        new ManhattanGraph(n, ttl, envSize, false, d, nbParallelStreets).moveAndBroadcast();
+                        new RWPGraph(n, ttl, envSize,false, d).moveAndBroadcast();
                     }
                     for (double[] pq : pqArray) {
-                        new EdgeMarkovianGraph(n, ttl, envSize, envSize, false, pq[0], pq[1]).moveAndBroadcast();
+                        new EdgeMarkovianGraph(n, ttl, envSize, false, pq[0], pq[1]).moveAndBroadcast();
                     }
                 }
             }

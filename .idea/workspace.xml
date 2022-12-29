@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc8721f7-ad43-47c3-9dd1-0a94cbc890af" name="Changes" comment="Dynamic graphs w/o results saving">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/EdgeMarkovianGraph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/ManhattanGraph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RWPGraph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RandomGraph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/Tools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/Py4JServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/EdgeMarkovianGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/EdgeMarkovianGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/ManhattanGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/ManhattanGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RWPGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RWPGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RandomGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RandomGraph.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +28,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -47,7 +44,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable"
+    "last_opened_file_path": "/home/ania/PycharmProjects/py4j_test/venv/share/py4j",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -55,20 +56,7 @@
       <recent name="org.uksw.akelm" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Broadcasting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.Broadcasting" />
-      <module name="interconnection_final_project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.uksw.akelm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Py4JServer">
     <configuration name="EdgeMarkovianGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.EdgeMarkovianGraph" />
       <module name="interconnection_final_project" />
@@ -108,6 +96,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Py4JServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.Py4JServer" />
+      <module name="interconnection_final_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.uksw.akelm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RWPGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.RWPGraph" />
       <module name="interconnection_final_project" />
@@ -123,11 +124,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Py4JServer" />
+        <item itemvalue="Application.RWPGraph" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.EdgeMarkovianGraph" />
         <item itemvalue="Application.ManhattanGraph" />
-        <item itemvalue="Application.RWPGraph" />
-        <item itemvalue="Application.Broadcasting" />
       </list>
     </recent_temporary>
   </component>
@@ -139,8 +140,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1672169185383</updated>
-      <workItem from="1672169186857" duration="27788000" />
+      <workItem from="1672169186857" duration="28663000" />
+      <workItem from="1672265499580" duration="76000" />
+      <workItem from="1672268508369" duration="8677000" />
     </task>
+    <task id="LOCAL-00001" summary="Dynamic graphs w/o results saving">
+      <created>1672257208684</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672257208684</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +185,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/uksw/akelm/EdgeMarkovianGraph.java</url>
-          <line>56</line>
+          <line>58</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

@@ -3,14 +3,19 @@ package org.uksw.akelm;
 import org.graphstream.graph.Node;
 
 import java.util.Objects;
-import java.util.Random;
+
 
 import static org.uksw.akelm.Tools.*;
 
 public class RWPGraph extends RandomGraph {
 
-    public RWPGraph(int n, int ttl, int envSize, int d, boolean showDynamics) {
-        super(n, ttl, envSize, d, showDynamics);
+    private final int d;
+
+
+    public RWPGraph(int n, int ttl, int envSize, boolean showDynamics, int d) {
+        super(n, ttl, envSize, showDynamics);
+        this.d = d;
+        this.params.put("d", (double) this.d);
     }
 
     public void verifyEdges() {
@@ -75,6 +80,6 @@ public class RWPGraph extends RandomGraph {
     public static void main(String[] args) {
         System.setProperty("org.graphstream.ui.renderer",
                 "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        new RWPGraph(100, 5, 1000, 50, true).moveAndBroadcast();
+        new RWPGraph(100, 5, 1000, true, 50).moveAndBroadcast();
     }
 }

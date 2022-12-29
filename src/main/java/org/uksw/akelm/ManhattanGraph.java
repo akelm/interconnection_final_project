@@ -11,12 +11,15 @@ public class ManhattanGraph extends RandomGraph {
 
     private final int distanceInterStreets;
     private final int nbParallelStreets;
+    private final int d;
 
-    public ManhattanGraph(int n, int ttl, int envSize, int d, boolean showDynamics, int nbParallelStreets) {
+    public ManhattanGraph(int n, int ttl, int envSize, boolean showDynamics,  int d, int nbParallelStreets) {
 
-        super(n, ttl, envSize, d, showDynamics);
+        super(n, ttl, envSize, showDynamics);
+        this.d = d;
         this.nbParallelStreets = nbParallelStreets;
         this.distanceInterStreets = (int) (envSize / nbParallelStreets);
+        this.params.put("d", (double) this.d);
     }
 
     public void verifyEdges() {
@@ -102,6 +105,6 @@ public class ManhattanGraph extends RandomGraph {
     public static void main(String[] args) {
         System.setProperty("org.graphstream.ui.renderer",
                 "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        new ManhattanGraph(100, 5, 1000, 50, true, 10).moveAndBroadcast();
+        new ManhattanGraph(100, 5, 1000,  true, 50, 10).moveAndBroadcast();
     }
 }
