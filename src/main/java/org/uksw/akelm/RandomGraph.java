@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.graphstream.algorithm.ConnectedComponents;
 import org.graphstream.algorithm.Toolkit;
+import org.graphstream.graph.Edge;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 
@@ -116,6 +117,8 @@ public abstract class RandomGraph {
         }
     }
 
+
+
     public abstract void moveNodes();
 
     /**
@@ -140,7 +143,7 @@ public abstract class RandomGraph {
         setDirections();
         ConnectedComponents cc = new ConnectedComponents();
         cc.init(graph);
-        Set<Node> prevSet = Sets.newHashSet(this.graph.getNodeSet());        // execution of the algorithm
+        Set<Edge> prevSet = Sets.newHashSet(this.graph.getEdgeSet());        // execution of the algorithm
         int nbIterations;
         for (nbIterations = 0; nbIterations < maxIter; nbIterations++) {
 
@@ -148,11 +151,11 @@ public abstract class RandomGraph {
             verifyEdges();
             // nbIterations; to zapisac
             // nbWithInfo; to zapisac
-            Set<Node> currSet = Sets.newHashSet(this.graph.getNodeSet());
+            Set<Edge> currSet = Sets.newHashSet(this.graph.getEdgeSet());
             int diffCount = Sets.symmetricDifference(prevSet, currSet).size();
             int sumCount = Sets.union(prevSet, currSet).size();
             float nervousness = (float) diffCount / sumCount;  // to zapisac
-            prevSet = currSet;
+            prevSet = Sets.newHashSet(currSet);
             double graphDensity = Toolkit.density(this.graph); // to zapisac
             int connCompCnt = cc.getConnectedComponentsCount(); // to zapisac
             int nbWithInfo = countNodesWithInfo();

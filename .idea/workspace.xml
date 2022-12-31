@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc8721f7-ad43-47c3-9dd1-0a94cbc890af" name="Changes" comment="Dynamic graphs w/o results saving">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/Py4JServer.java" afterDir="false" />
+    <list default="true" id="bc8721f7-ad43-47c3-9dd1-0a94cbc890af" name="Changes" comment="Integration with Python via Py4J">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/FakeEdgeMarkovianGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/EdgeMarkovianGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/EdgeMarkovianGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/ManhattanGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/ManhattanGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RWPGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RWPGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/Py4JServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/Py4JServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RandomGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RandomGraph.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +45,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/home/ania/PycharmProjects/py4j_test/venv/share/py4j",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
@@ -70,8 +71,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.Main" />
+    <configuration name="FakeEdgeMarkovianGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.FakeEdgeMarkovianGraph" />
       <module name="interconnection_final_project" />
       <extension name="coverage">
         <pattern>
@@ -83,8 +84,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ManhattanGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.ManhattanGraph" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.Main" />
       <module name="interconnection_final_project" />
       <extension name="coverage">
         <pattern>
@@ -127,8 +128,8 @@
         <item itemvalue="Application.Py4JServer" />
         <item itemvalue="Application.RWPGraph" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.FakeEdgeMarkovianGraph" />
         <item itemvalue="Application.EdgeMarkovianGraph" />
-        <item itemvalue="Application.ManhattanGraph" />
       </list>
     </recent_temporary>
   </component>
@@ -142,7 +143,7 @@
       <updated>1672169185383</updated>
       <workItem from="1672169186857" duration="28663000" />
       <workItem from="1672265499580" duration="76000" />
-      <workItem from="1672268508369" duration="8677000" />
+      <workItem from="1672268508369" duration="40332000" />
     </task>
     <task id="LOCAL-00001" summary="Dynamic graphs w/o results saving">
       <created>1672257208684</created>
@@ -151,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672257208684</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Integration with Python via Py4J">
+      <created>1672278058429</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672278058429</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +170,39 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -170,7 +210,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Dynamic graphs w/o results saving" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dynamic graphs w/o results saving" />
+    <MESSAGE value="Integration with Python via Py4J" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integration with Python via Py4J" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -183,10 +224,14 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="6" />
         </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassCastException" package="java.lang" />
+          <option name="timeStamp" value="9" />
+        </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/uksw/akelm/EdgeMarkovianGraph.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/uksw/akelm/RandomGraph.java</url>
+          <line>161</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -4,9 +4,8 @@ import org.graphstream.algorithm.Toolkit;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.DoubleStream;
 
 import static org.uksw.akelm.Tools.distance;
 import static org.uksw.akelm.Tools.nodeDistance;
@@ -15,6 +14,8 @@ public class EdgeMarkovianGraph extends RandomGraph {
 
     private final double p;
     private final double q;
+    private final double[] doubleArr;
+    private int doubleArrPointer;
     Node[] allNodes;
 
     public EdgeMarkovianGraph(int n, int ttl, int envSize, boolean showDynamics, double p, double q) {
@@ -24,6 +25,9 @@ public class EdgeMarkovianGraph extends RandomGraph {
         this.q = q;
         this.params.put("p", this.p);
         this.params.put("q", this.q);
+        long rndCount = (((long) n *n) - n)/2 * (maxIter+1);
+        this.doubleArr = alea.doubles(rndCount).toArray();
+        this.doubleArrPointer = 0;
     }
 
 //    public SingleGraph initUnconnectedGraph(int n) {
@@ -49,17 +53,18 @@ public class EdgeMarkovianGraph extends RandomGraph {
 
 
     public void verifyEdges() {
-        this.allNodes = this.graph.getNodeSet().toArray(new Node[this.n]);
         for (int i = 0; i < (allNodes.length - 1); i++) {
             Node u = allNodes[i];
             for (int j = i + 1; j < allNodes.length; j++) {
                 Node v = allNodes[j];
+                double randomNumber = doubleArr[doubleArrPointer];
+                doubleArrPointer+=1;
                 if (!u.hasEdgeBetween(v)) {
-                    if (alea.nextDouble() > this.q) {
+                    if (randomNumber > this.q) {
                         this.graph.addEdge(u.getId() + "--" + v.getId(), u.getId(), v.getId());
                     }
                 } else {
-                    if (alea.nextDouble() > this.p) {
+                    if (randomNumber > this.p) {
                         this.graph.removeEdge((u.getEdgeBetween(v)).getId());
                     }
                 }
@@ -70,6 +75,7 @@ public class EdgeMarkovianGraph extends RandomGraph {
 
     @Override
     protected void setDirections() {
+        this.allNodes = this.graph.getNodeSet().toArray(new Node[this.n]);
     }
 
 
