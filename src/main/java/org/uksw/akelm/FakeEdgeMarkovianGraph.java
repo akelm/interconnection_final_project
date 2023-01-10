@@ -1,14 +1,9 @@
 package org.uksw.akelm;
 
 import com.google.common.collect.Sets;
-import org.ejml.simple.SimpleMatrix;
-import org.graphstream.algorithm.ConnectedComponents;
-import org.graphstream.algorithm.Toolkit;
 import org.graphstream.graph.Node;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class FakeEdgeMarkovianGraph extends RandomGraph {
 
@@ -55,11 +50,11 @@ public class FakeEdgeMarkovianGraph extends RandomGraph {
     
     @Override
     public void broadcast() {
-        for (int i = 0; i < (n - 1); i++) {
-            if (ttlArray[i] >0 & ttlArray[i]< ttl) {
-                for (int j = i + 1; j < n; j++) {
-                    if (connectivityMatrix[i][j] & ttlArray[j]==0) {
-                        ttlArray[j] = ttl;
+        for (int i = 0; i < n; i++) {
+            if (ttlArray[i] >0 & ttlArray[i] <= ttl) {
+                for (int j = 0; j < n; j++) {
+                    if ( (connectivityMatrix[i][j] | connectivityMatrix[j][i]) & ttlArray[j]==0) {
+                        ttlArray[j] = ttl+1;
                     }
                 }
             }
@@ -68,9 +63,9 @@ public class FakeEdgeMarkovianGraph extends RandomGraph {
     }
     @Override
     public void decreaseTTL() {
-        for (int i = 0; i < (n - 1); i++) {
+        for (int i = 0; i < n; i++) {
             if (ttlArray[i] > 0) {
-                ttlArray[i]--;
+                ttlArray[i]-=1;
             }
         }
     }
@@ -99,11 +94,19 @@ public class FakeEdgeMarkovianGraph extends RandomGraph {
     }
     @Override
     public int countNodesWithInfo() {
-        return Arrays.stream(ttlArray).map(x -> {  if (x>0) return 1; else return 0; }).sum();
+        int info = 0;
+        for (int i=0; i<n; i++) {
+            if (ttlArray[i] >0) {
+                info+=1;
+            }
+        }
+        return info;
+
+//        return Arrays.stream(ttlArray).map(x -> {  if (x>0) return 1; else return 0; }).sum();
     }
 
 
-    public Set<Integer> getNodeSet(){
+    public Set<Integer> getEdgeSet(){
         Set<Integer> nodeSet = new HashSet<>();
         int nodeNumber = 0;
         for (int i = 0; i < (n - 1); i++) {
@@ -143,14 +146,16 @@ public class FakeEdgeMarkovianGraph extends RandomGraph {
 
         double[][] results = new double[maxIter][4];;
 
-        Set<Integer> prevSet = getNodeSet();
+        Set<Integer> prevSet = getEdgeSet();
         int nbIterations;
         for (nbIterations = 0; nbIterations < maxIter; nbIterations++) {
 
 
             verifyEdges();
+            broadcast();
+
             // nervousness
-            Set<Integer> currSet = getNodeSet();
+            Set<Integer> currSet = getEdgeSet();
             int diffCount = Sets.symmetricDifference(prevSet, currSet).size();
             int sumCount = Sets.union(prevSet, currSet).size();
             double nervousness = (double) diffCount / sumCount;  // to zapisac
@@ -160,9 +165,8 @@ public class FakeEdgeMarkovianGraph extends RandomGraph {
             int connCompCnt = countComponents(); // to zapisac
             int nbWithInfo = countNodesWithInfo();
             double[] iterRes = {nbWithInfo, nervousness, graphDensity, connCompCnt};
+
             results[nbIterations] = iterRes;
-            broadcast();
-            moveNodes();
             decreaseTTL();
             if (countNodesWithInfo() == 0) {
                 break;

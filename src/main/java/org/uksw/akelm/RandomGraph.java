@@ -24,11 +24,13 @@ public abstract class RandomGraph {
     public final static String hasInfo = "fill-color:red;";
     public final static String hasNoInfo = "fill-color:blue;";
     int maxIter = 1000;
-    double proximityThreshold = 4;
+    double proximityThreshold = 1;
     double speed = 1;
     Random alea = aleaGenerator();
     protected SingleGraph graph;
     protected final int ttl;
+    private HashSet<Edge> prevSet;
+    private ConnectedComponents cc;
 
     public RandomGraph(int n, int ttl, int envSize, boolean showDynamics) {
         this.n = n;
@@ -95,11 +97,14 @@ public abstract class RandomGraph {
         }
         return nbWithInfo;
     }
-
+// deeper analysis of the reults
+// results
+    // why there os some uppred threshold on fraction o manhattan
+    //
     public void broadcast() {
         for (Node u : this.graph.getNodeSet()) {
             int ttl = u.getAttribute("ttl");
-            if (ttl > 0 & ttl < this.ttl) {
+            if (ttl > 0 & ttl <= this.ttl) {
 
                 Iterator<Node> neighbors = u.getNeighborNodeIterator();
                 while (neighbors.hasNext()) {
@@ -109,7 +114,7 @@ public abstract class RandomGraph {
                         if (this.showDynamics) {
                             System.out.println("node " + v.getId() + " gets message from " + u.getId());
                         }
-                        v.setAttribute("ttl", this.ttl);
+                        v.setAttribute("ttl", this.ttl+1);
                         v.addAttribute("ui.style", hasInfo);
                     }
                 }
@@ -117,6 +122,18 @@ public abstract class RandomGraph {
         }
     }
 
+
+    protected double[] collectStatistics() {
+        Set<Edge> currSet = Sets.newHashSet(this.graph.getEdgeSet());
+        int diffCount = Sets.symmetricDifference(prevSet, currSet).size();
+        int sumCount = Sets.union(prevSet, currSet).size();
+        float nervousness = (float) diffCount / sumCount;  // to zapisac
+        prevSet = Sets.newHashSet(currSet);
+        double graphDensity = Toolkit.density(this.graph); // to zapisac
+        int connCompCnt = this.cc.getConnectedComponentsCount(); // to zapisac
+        int nbWithInfo = countNodesWithInfo();
+        return new double[]{nbWithInfo, nervousness, graphDensity, connCompCnt};
+    }
 
 
     public abstract void moveNodes();
@@ -141,33 +158,26 @@ public abstract class RandomGraph {
             this.graph.display(false);
         }
         setDirections();
-        ConnectedComponents cc = new ConnectedComponents();
-        cc.init(graph);
-        Set<Edge> prevSet = Sets.newHashSet(this.graph.getEdgeSet());        // execution of the algorithm
+        this.cc = new ConnectedComponents();
+        this.cc.init(this.graph);
+        this.prevSet = Sets.newHashSet(this.graph.getEdgeSet());        // execution of the algorithm
         int nbIterations;
         for (nbIterations = 0; nbIterations < maxIter; nbIterations++) {
+//            hitakey(String.valueOf(countNodesWithInfo()));
 
 
-            verifyEdges();
-            // nbIterations; to zapisac
-            // nbWithInfo; to zapisac
-            Set<Edge> currSet = Sets.newHashSet(this.graph.getEdgeSet());
-            int diffCount = Sets.symmetricDifference(prevSet, currSet).size();
-            int sumCount = Sets.union(prevSet, currSet).size();
-            float nervousness = (float) diffCount / sumCount;  // to zapisac
-            prevSet = Sets.newHashSet(currSet);
-            double graphDensity = Toolkit.density(this.graph); // to zapisac
-            int connCompCnt = cc.getConnectedComponentsCount(); // to zapisac
-            int nbWithInfo = countNodesWithInfo();
-            double[] iterRes = {nbWithInfo, nervousness, graphDensity, connCompCnt};
-            results[nbIterations] = iterRes;
-            broadcast();
             moveNodes();
+            verifyEdges();
+            broadcast();
+
+
+            results[nbIterations] = collectStatistics();
+
             decreaseTTL();
+            int nbWithInfo = countNodesWithInfo();
             if (this.showDynamics) {
                 Tools.pause(delay);
             }
-            nbWithInfo = countNodesWithInfo();
             if (this.showDynamics) {
                 System.out.println("iter " + nbIterations);
                 System.out.println("info " + nbWithInfo);

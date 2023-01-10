@@ -87,6 +87,6 @@ public class EdgeMarkovianGraph extends RandomGraph {
     public static void main(String[] args) {
         System.setProperty("org.graphstream.ui.renderer",
                 "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        new EdgeMarkovianGraph(100, 5, 1000, true, 0.1, 0.99).moveAndBroadcast();
+        new EdgeMarkovianGraph(300, 1, 1000, true, 0.1, 0.99).moveAndBroadcast();
     }
 }
