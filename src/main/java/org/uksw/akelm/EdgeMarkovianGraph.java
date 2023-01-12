@@ -1,22 +1,14 @@
 package org.uksw.akelm;
 
-import org.graphstream.algorithm.Toolkit;
 import org.graphstream.graph.Node;
-import org.graphstream.graph.implementations.SingleGraph;
-
-import java.util.*;
-import java.util.stream.DoubleStream;
-
-import static org.uksw.akelm.Tools.distance;
-import static org.uksw.akelm.Tools.nodeDistance;
 
 public class EdgeMarkovianGraph extends RandomGraph {
 
     private final double p;
     private final double q;
     private final double[] doubleArr;
-    private int doubleArrPointer;
     Node[] allNodes;
+    private int doubleArrPointer;
 
     public EdgeMarkovianGraph(int n, int ttl, int envSize, boolean showDynamics, double p, double q) {
 
@@ -25,7 +17,7 @@ public class EdgeMarkovianGraph extends RandomGraph {
         this.q = q;
         this.params.put("p", this.p);
         this.params.put("q", this.q);
-        long rndCount = (((long) n *n) - n)/2 * (maxIter+1);
+        long rndCount = (((long) n * n) - n) / 2 * (maxIter + 1);
         this.doubleArr = alea.doubles(rndCount).toArray();
         this.doubleArrPointer = 0;
     }
@@ -51,6 +43,11 @@ public class EdgeMarkovianGraph extends RandomGraph {
 //        return aGraph;
 //    }
 
+    public static void main(String[] args) {
+        System.setProperty("org.graphstream.ui.renderer",
+                "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+        new EdgeMarkovianGraph(300, 1, 1000, true, 0.1, 0.99).moveAndBroadcast(1);
+    }
 
     public void verifyEdges() {
         for (int i = 0; i < (allNodes.length - 1); i++) {
@@ -58,7 +55,7 @@ public class EdgeMarkovianGraph extends RandomGraph {
             for (int j = i + 1; j < allNodes.length; j++) {
                 Node v = allNodes[j];
                 double randomNumber = doubleArr[doubleArrPointer];
-                doubleArrPointer+=1;
+                doubleArrPointer += 1;
                 if (!u.hasEdgeBetween(v)) {
                     if (randomNumber > this.q) {
                         this.graph.addEdge(u.getId() + "--" + v.getId(), u.getId(), v.getId());
@@ -72,21 +69,12 @@ public class EdgeMarkovianGraph extends RandomGraph {
         }
     }
 
-
     @Override
     protected void setDirections() {
         this.allNodes = this.graph.getNodeSet().toArray(new Node[this.n]);
     }
 
-
     @Override
     public void moveNodes() {
-    }
-
-
-    public static void main(String[] args) {
-        System.setProperty("org.graphstream.ui.renderer",
-                "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        new EdgeMarkovianGraph(300, 1, 1000, true, 0.1, 0.99).moveAndBroadcast();
     }
 }

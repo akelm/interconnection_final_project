@@ -3,9 +3,9 @@ package org.uksw.akelm;
 import org.graphstream.graph.Node;
 
 import java.util.Objects;
-import java.util.Random;
 
-import static org.uksw.akelm.Tools.*;
+import static org.uksw.akelm.Tools.distance;
+import static org.uksw.akelm.Tools.nodeDistance;
 
 public class ManhattanGraph extends RandomGraph {
 
@@ -13,13 +13,18 @@ public class ManhattanGraph extends RandomGraph {
     private final int nbParallelStreets;
     private final int d;
 
-    public ManhattanGraph(int n, int ttl, int envSize, boolean showDynamics,  int d, int nbParallelStreets) {
+    public ManhattanGraph(int n, int ttl, int envSize, boolean showDynamics, int d, int nbParallelStreets) {
 
         super(n, ttl, envSize, showDynamics);
         this.d = d;
         this.nbParallelStreets = nbParallelStreets;
-        this.distanceInterStreets = (int) (envSize / nbParallelStreets);
+        this.distanceInterStreets = envSize / nbParallelStreets;
         this.params.put("d", (double) this.d);
+    }
+
+    public static void main(String[] args) {
+        System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+        new ManhattanGraph(100, 5, 1000, true, 50, 10).moveAndBroadcast(1);
     }
 
     public void verifyEdges() {
@@ -100,11 +105,5 @@ public class ManhattanGraph extends RandomGraph {
             u.addAttribute("x", dx);
             u.addAttribute("y", dy);
         }
-    }
-
-    public static void main(String[] args) {
-        System.setProperty("org.graphstream.ui.renderer",
-                "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        new ManhattanGraph(100, 5, 1000,  true, 50, 10).moveAndBroadcast();
     }
 }

@@ -1,12 +1,12 @@
 package org.uksw.akelm;
 
 
-import java.io.IOException;
-import java.util.Random;
-
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.stream.file.FileSinkImages;
+
+import java.io.IOException;
+import java.util.Random;
 
 public class Tools {
 

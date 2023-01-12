@@ -4,8 +4,8 @@ import org.graphstream.graph.Node;
 
 import java.util.Objects;
 
-
-import static org.uksw.akelm.Tools.*;
+import static org.uksw.akelm.Tools.distance;
+import static org.uksw.akelm.Tools.nodeDistance;
 
 public class RWPGraph extends RandomGraph {
 
@@ -18,13 +18,19 @@ public class RWPGraph extends RandomGraph {
         this.params.put("d", (double) this.d);
     }
 
+    public static void main(String[] args) {
+        System.setProperty("org.graphstream.ui.renderer",
+                "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+        new RWPGraph(100, 4, 1000, true, 70).moveAndBroadcast(1);
+    }
+
     public void verifyEdges() {
-        for(Node u:this.graph.getNodeSet()) {
-            for(Node v:this.graph.getNodeSet()) {
-                if(!Objects.equals(u.getId(), v.getId())) {
-                    if((nodeDistance(u,v) < this.d) && (!u.hasEdgeBetween(v))) {
-                        this.graph.addEdge(u.getId()+"--"+v.getId(),u.getId(),v.getId());
-                    } else if((nodeDistance(u,v) > this.d) && (u.hasEdgeBetween(v))) {
+        for (Node u : this.graph.getNodeSet()) {
+            for (Node v : this.graph.getNodeSet()) {
+                if (!Objects.equals(u.getId(), v.getId())) {
+                    if ((nodeDistance(u, v) < this.d) && (!u.hasEdgeBetween(v))) {
+                        this.graph.addEdge(u.getId() + "--" + v.getId(), u.getId(), v.getId());
+                    } else if ((nodeDistance(u, v) > this.d) && (u.hasEdgeBetween(v))) {
                         this.graph.removeEdge((u.getEdgeBetween(v)).getId());
                     }
                 }
@@ -76,10 +82,5 @@ public class RWPGraph extends RandomGraph {
             u.addAttribute("x", dx);
             u.addAttribute("y", dy);
         }
-    }
-    public static void main(String[] args) {
-        System.setProperty("org.graphstream.ui.renderer",
-                "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        new RWPGraph(100, 4, 1000, true, 70).moveAndBroadcast();
     }
 }

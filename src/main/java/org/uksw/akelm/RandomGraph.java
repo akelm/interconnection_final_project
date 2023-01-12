@@ -1,34 +1,31 @@
 package org.uksw.akelm;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
+
 import org.graphstream.algorithm.ConnectedComponents;
 import org.graphstream.algorithm.Toolkit;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
-import static org.uksw.akelm.Tools.*;
+import static org.uksw.akelm.Tools.aleaGenerator;
 
 public abstract class RandomGraph {
-    protected final int envSize;
-    protected final int n;
-    private final boolean showDynamics;
-    public final TreeMap<String, Double> params;
-
-    // execution parameters
-    int delay = 50;
     public final static String hasInfo = "fill-color:red;";
     public final static String hasNoInfo = "fill-color:blue;";
+    public final TreeMap<String, Double> params;
+    protected final int envSize;
+    protected final int n;
+    protected final int ttl;
+    private final boolean showDynamics;
+    protected SingleGraph graph;
+    // execution parameters
+    int delay = 50;
     int maxIter = 1000;
     double proximityThreshold = 1;
     double speed = 1;
     Random alea = aleaGenerator();
-    protected SingleGraph graph;
-    protected final int ttl;
     private HashSet<Edge> prevSet;
     private ConnectedComponents cc;
 
@@ -97,7 +94,8 @@ public abstract class RandomGraph {
         }
         return nbWithInfo;
     }
-// deeper analysis of the reults
+
+    // deeper analysis of the reults
 // results
     // why there os some uppred threshold on fraction o manhattan
     //
@@ -114,7 +112,7 @@ public abstract class RandomGraph {
                         if (this.showDynamics) {
                             System.out.println("node " + v.getId() + " gets message from " + u.getId());
                         }
-                        v.setAttribute("ttl", this.ttl+1);
+                        v.setAttribute("ttl", this.ttl + 1);
                         v.addAttribute("ui.style", hasInfo);
                     }
                 }
@@ -122,13 +120,21 @@ public abstract class RandomGraph {
         }
     }
 
+    public <T> double nervousness(Set<T> prevSet, Set<T> currSet) {
+        int intersection = 0;
+        for (T num : currSet) {
+            if (prevSet.contains(num)) {
+                intersection += 1;
+            }
+        }
+        int sumSet = prevSet.size() + currSet.size() - intersection;
+        return 1 - intersection / (double) sumSet;
+    }
 
     protected double[] collectStatistics() {
-        Set<Edge> currSet = Sets.newHashSet(this.graph.getEdgeSet());
-        int diffCount = Sets.symmetricDifference(prevSet, currSet).size();
-        int sumCount = Sets.union(prevSet, currSet).size();
-        float nervousness = (float) diffCount / sumCount;  // to zapisac
-        prevSet = Sets.newHashSet(currSet);
+        Set<Edge> currSet = new HashSet<>(this.graph.getEdgeSet());
+        double nervousness = nervousness(prevSet, currSet);
+        prevSet = new HashSet<>(currSet);
         double graphDensity = Toolkit.density(this.graph); // to zapisac
         int connCompCnt = this.cc.getConnectedComponentsCount(); // to zapisac
         int nbWithInfo = countNodesWithInfo();
@@ -150,43 +156,47 @@ public abstract class RandomGraph {
      * during one time step no transmission has been done.
      * 3) statistical results are displayed in the console/terminal.
      */
-    public double[][]  moveAndBroadcast() {
-        this.graph = initUnconnectedGraph(this.n);
-        double[][] results = new double[maxIter][4];;
-        if (this.showDynamics) {
-            this.graph.addAttribute("ui.antialias");
-            this.graph.display(false);
-        }
-        setDirections();
-        this.cc = new ConnectedComponents();
-        this.cc.init(this.graph);
-        this.prevSet = Sets.newHashSet(this.graph.getEdgeSet());        // execution of the algorithm
-        int nbIterations;
-        for (nbIterations = 0; nbIterations < maxIter; nbIterations++) {
+    public double[][][] moveAndBroadcast(int n_iter) {
+        double[][][] outerResults = new double[n_iter][maxIter][4];
+        for (int i = 0; i < n_iter; i++) {
+            this.graph = initUnconnectedGraph(this.n);
+            double[][] results = new double[maxIter][4];
+            if (this.showDynamics) {
+                this.graph.addAttribute("ui.antialias");
+                this.graph.display(false);
+            }
+            setDirections();
+            this.cc = new ConnectedComponents();
+            this.cc.init(this.graph);
+            this.prevSet = new HashSet<>(this.graph.getEdgeSet());        // execution of the algorithm
+            int nbIterations;
+            for (nbIterations = 0; nbIterations < maxIter; nbIterations++) {
 //            hitakey(String.valueOf(countNodesWithInfo()));
 
 
-            moveNodes();
-            verifyEdges();
-            broadcast();
+                moveNodes();
+                verifyEdges();
+                broadcast();
 
 
-            results[nbIterations] = collectStatistics();
+                results[nbIterations] = collectStatistics();
 
-            decreaseTTL();
-            int nbWithInfo = countNodesWithInfo();
-            if (this.showDynamics) {
-                Tools.pause(delay);
+                decreaseTTL();
+                int nbWithInfo = countNodesWithInfo();
+                if (this.showDynamics) {
+                    Tools.pause(delay);
+                }
+                if (this.showDynamics) {
+                    System.out.println("iter " + nbIterations);
+                    System.out.println("info " + nbWithInfo);
+                }
+                if (nbWithInfo == 0) {
+                    break;
+                }
             }
-            if (this.showDynamics) {
-                System.out.println("iter " + nbIterations);
-                System.out.println("info " + nbWithInfo);
-            }
-            if (nbWithInfo == 0) {
-                break;
-            }
+            outerResults[i] = results;
         }
-        return results;
+        return outerResults;
     }
 
 
@@ -206,7 +216,7 @@ public abstract class RandomGraph {
         return arrived;
     }
 
-    public TreeMap<String, Double> getParams(){
+    public TreeMap<String, Double> getParams() {
         return this.params;
     }
 
