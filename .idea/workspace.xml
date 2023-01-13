@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc8721f7-ad43-47c3-9dd1-0a94cbc890af" name="Changes" comment="Python setup script">
+    <list default="true" id="bc8721f7-ad43-47c3-9dd1-0a94cbc890af" name="Changes" comment="Small Python patch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +173,7 @@
       <workItem from="1673483796792" duration="1984000" />
       <workItem from="1673486165775" duration="8899000" />
       <workItem from="1673563019437" duration="4732000" />
-      <workItem from="1673636986994" duration="1291000" />
+      <workItem from="1673636986994" duration="3430000" />
     </task>
     <task id="LOCAL-00001" summary="Dynamic graphs w/o results saving">
       <created>1672257208684</created>
@@ -231,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673637047736</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Small Python patch">
+      <created>1673641061647</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673641061647</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,7 +296,8 @@
     <MESSAGE value="Fixed collecting statistics" />
     <MESSAGE value="classes importable from Python" />
     <MESSAGE value="Python setup script" />
-    <option name="LAST_COMMIT_MESSAGE" value="Python setup script" />
+    <MESSAGE value="Small Python patch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small Python patch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
