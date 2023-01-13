@@ -19,9 +19,8 @@ public class RWPGraph extends RandomGraph {
     }
 
     public static void main(String[] args) {
-        System.setProperty("org.graphstream.ui.renderer",
-                "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        new RWPGraph(100, 4, 1000, true, 70).moveAndBroadcast(1);
+        System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+        new RWPGraph(100, 4, 1000, true, 70).moveAndBroadcast();
     }
 
     public void verifyEdges() {
@@ -83,4 +82,5 @@ public class RWPGraph extends RandomGraph {
             u.addAttribute("y", dy);
         }
     }
+
 }

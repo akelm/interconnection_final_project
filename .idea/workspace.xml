@@ -4,17 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc8721f7-ad43-47c3-9dd1-0a94cbc890af" name="Changes" comment="Fixed collecting statistics">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="bc8721f7-ad43-47c3-9dd1-0a94cbc890af" name="Changes" comment="classes importable from Python">
+      <change afterPath="$PROJECT_DIR$/src/main/python/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/python/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/python/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/python/plot_generic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/python/plotting.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/python/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/python/run_python.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/conn_comp.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/density.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/frac_info_edge.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/frac_info_manhattan.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/frac_info_rwp.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/nervousness.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/res_fakeedge_2022_12_30_03_56_24.joblib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/res_manh_2022_12_31_04_51_56.joblib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/res_rwp_2022_12_31_04_47_15.joblib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/results.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/results.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/measures_and_experiments/success_rate.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/EdgeMarkovianGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/EdgeMarkovianGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/FakeEdgeMarkovianGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/FakeEdgeMarkovianGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/ManhattanGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/ManhattanGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/Py4JServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/PyImportable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/PyImportable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/PyImportable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RWPGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RWPGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RandomGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/RandomGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uksw/akelm/Tools.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +44,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -53,16 +72,17 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/ania/IdeaProjects/interconnection_final_project/src/main/java/org/uksw/akelm",
+    "last_opened_file_path": "/home/ania/IdeaProjects/interconnection_final_project/src/main/python",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/python" />
       <recent name="$PROJECT_DIR$/src/main/java/org/uksw/akelm" />
       <recent name="$PROJECT_DIR$/measures_and_experiments" />
     </key>
@@ -70,7 +90,20 @@
       <recent name="org.uksw.akelm" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.org.uksw.akelm.RWPGraph">
+  <component name="RunManager" selected="Shell Script.run_python.sh">
+    <configuration name="ManhattanGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.ManhattanGraph" />
+      <module name="interconnection_final_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.uksw.akelm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PyImportable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.PyImportable" />
       <module name="interconnection_final_project" />
@@ -97,52 +130,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="org.uksw.akelm.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.Main" />
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="interconnection_final_project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.uksw.akelm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/python" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main/python/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
-    <configuration name="org.uksw.akelm.RWPGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.RWPGraph" />
-      <module name="interconnection_final_project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.uksw.akelm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="org.uksw.akelm.WordGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.WordGraph" />
-      <module name="interconnection_final_project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.uksw.akelm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="run_python.sh" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/src/main/python/run_python.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/python" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.org.uksw.akelm.RWPGraph" />
+        <item itemvalue="Shell Script.run_python.sh" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Application.PyImportable" />
+        <item itemvalue="Application.ManhattanGraph" />
         <item itemvalue="Application.org.uksw.akelm.EdgeMarkovianGraph" />
-        <item itemvalue="Application.org.uksw.akelm.WordGraph" />
-        <item itemvalue="Application.org.uksw.akelm.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -166,7 +197,9 @@
       <workItem from="1672880134710" duration="8544000" />
       <workItem from="1673384519391" duration="10017000" />
       <workItem from="1673478744939" duration="4572000" />
-      <workItem from="1673483796792" duration="1422000" />
+      <workItem from="1673483796792" duration="1984000" />
+      <workItem from="1673486165775" duration="8899000" />
+      <workItem from="1673563019437" duration="4732000" />
     </task>
     <task id="LOCAL-00001" summary="Dynamic graphs w/o results saving">
       <created>1672257208684</created>
@@ -210,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673387022238</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="classes importable from Python">
+      <created>1673485776652</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673485776652</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +306,8 @@
     <MESSAGE value="Removed unused Main" />
     <MESSAGE value="Added Python project with results and statistics" />
     <MESSAGE value="Fixed collecting statistics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed collecting statistics" />
+    <MESSAGE value="classes importable from Python" />
+    <option name="LAST_COMMIT_MESSAGE" value="classes importable from Python" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -285,15 +326,22 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/uksw/akelm/RWPGraph.java</url>
-          <line>54</line>
+          <line>53</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/uksw/akelm/FakeEdgeMarkovianGraph.java</url>
-          <line>173</line>
+          <line>168</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/interconnection_final_project$main.coverage" NAME="main Coverage Results" MODIFIED="1673564879259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/main/python" />
   </component>
 </project>

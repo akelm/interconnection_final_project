@@ -40,6 +40,7 @@ public abstract class RandomGraph {
 
     }
 
+
     public SingleGraph initUnconnectedGraph(int n) {
         SingleGraph rgg = new SingleGraph("RGG: " + n);
         // creation of nodes
@@ -144,6 +145,9 @@ public abstract class RandomGraph {
 
     public abstract void moveNodes();
 
+
+
+
     /**
      * main method for launching the simulation.
      * 1) init phase: the graph, the environment, the
@@ -156,9 +160,7 @@ public abstract class RandomGraph {
      * during one time step no transmission has been done.
      * 3) statistical results are displayed in the console/terminal.
      */
-    public double[][][] moveAndBroadcast(int n_iter) {
-        double[][][] outerResults = new double[n_iter][maxIter][4];
-        for (int i = 0; i < n_iter; i++) {
+    public double[][] moveAndBroadcast() {
             this.graph = initUnconnectedGraph(this.n);
             double[][] results = new double[maxIter][4];
             if (this.showDynamics) {
@@ -194,9 +196,7 @@ public abstract class RandomGraph {
                     break;
                 }
             }
-            outerResults[i] = results;
-        }
-        return outerResults;
+        return results;
     }
 
 

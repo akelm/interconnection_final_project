@@ -24,7 +24,7 @@ public class ManhattanGraph extends RandomGraph {
 
     public static void main(String[] args) {
         System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        new ManhattanGraph(100, 5, 1000, true, 50, 10).moveAndBroadcast(1);
+        new ManhattanGraph(100, 5, 1000, false, 50, 10).moveAndBroadcast();
     }
 
     public void verifyEdges() {
@@ -106,4 +106,5 @@ public class ManhattanGraph extends RandomGraph {
             u.addAttribute("y", dy);
         }
     }
+
 }

@@ -2,8 +2,12 @@ package org.uksw.akelm;
 
 import org.graphstream.graph.Node;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FakeEdgeMarkovianGraph extends RandomGraph {
 
@@ -28,7 +32,7 @@ public class FakeEdgeMarkovianGraph extends RandomGraph {
     public static void main(String[] args) {
         System.setProperty("org.graphstream.ui.renderer",
                 "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        new FakeEdgeMarkovianGraph(100, 5, 1000, true, 0.1, 0.99).moveAndBroadcast(1);
+        new FakeEdgeMarkovianGraph(100, 5, 1000, true, 0.1, 0.99).moveAndBroadcast();
     }
 
     public void verifyEdges() {
@@ -120,17 +124,7 @@ public class FakeEdgeMarkovianGraph extends RandomGraph {
         return nodeSet;
     }
 
-//    @Override
-//    public double nervousness(Set<Integer> prevSet, Set<Integer> currSet) {
-//        int intersection = 0;
-//        for (Integer num:currSet) {
-//            if (prevSet.contains(num)) {
-//                intersection+=1;
-//            }
-//        }
-//        int sumSet = prevSet.size() + currSet.size() - intersection;
-//        return 1 - intersection/(double)sumSet;
-//    }
+
 
     public int countComponents() {
 
@@ -149,10 +143,11 @@ public class FakeEdgeMarkovianGraph extends RandomGraph {
         return nbZeroPrev;
     }
 
+
+
     @Override
-    public double[][][] moveAndBroadcast(int n_iter) {
-        double[][][] outerResults = new double[n_iter][maxIter][4];
-        for (int i = 0; i < n_iter; i++) {
+    public double[][] moveAndBroadcast() {
+
             this.connectivityMatrix = new boolean[n][n];
             this.ttlArray = new int[n];
 
@@ -184,8 +179,9 @@ public class FakeEdgeMarkovianGraph extends RandomGraph {
                     break;
                 }
             }
-            outerResults[i] = results;
-        }
-        return outerResults;
+
+        return results;
     }
+
+
 }

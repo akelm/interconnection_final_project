@@ -46,7 +46,8 @@ public class EdgeMarkovianGraph extends RandomGraph {
     public static void main(String[] args) {
         System.setProperty("org.graphstream.ui.renderer",
                 "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        new EdgeMarkovianGraph(300, 1, 1000, true, 0.1, 0.99).moveAndBroadcast(1);
+        double[][] res = new EdgeMarkovianGraph(300, 1, 1000, false, 0.1, 0.99).moveAndBroadcast();
+        System.out.println(res.length);
     }
 
     public void verifyEdges() {
@@ -77,4 +78,5 @@ public class EdgeMarkovianGraph extends RandomGraph {
     @Override
     public void moveNodes() {
     }
+
 }
