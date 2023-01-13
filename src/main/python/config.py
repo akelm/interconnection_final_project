@@ -20,7 +20,7 @@ nbParallelStreets = 10
 filenames_dict = {
     "man": "res_manh",
     "rwp": "res_rwp",
-    "edge": "res_fakeedge",
+    "edge": "res_edge",
 }
 
 title_labels = {
