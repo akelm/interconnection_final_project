@@ -4,9 +4,7 @@ import time
 from itertools import product, chain
 
 jar_path = glob.glob("../../../target/*dependencies.jar", recursive=True)[0]
-import os
 
-# os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-1.8.0-openjdk-amd64/"
 import jnius_config
 
 jnius_config.set_classpath(".", jar_path)

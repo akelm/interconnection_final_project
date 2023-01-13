@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc8721f7-ad43-47c3-9dd1-0a94cbc890af" name="Changes" comment="Small Python patch">
+    <list default="true" id="bc8721f7-ad43-47c3-9dd1-0a94cbc890af" name="Changes" comment="Java path fix">
+      <change afterPath="$PROJECT_DIR$/run_python.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/run_python.sh" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,11 +62,14 @@
       <recent name="$PROJECT_DIR$/src/main/java/org/uksw/akelm" />
       <recent name="$PROJECT_DIR$/measures_and_experiments" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.uksw.akelm" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.run_python.sh">
+  <component name="RunManager" selected="Shell Script.run_python.sh (1)">
     <configuration name="ManhattanGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.ManhattanGraph" />
       <module name="interconnection_final_project" />
@@ -79,19 +85,6 @@
     </configuration>
     <configuration name="PyImportable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.PyImportable" />
-      <module name="interconnection_final_project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.uksw.akelm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="org.uksw.akelm.EdgeMarkovianGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uksw.akelm.EdgeMarkovianGraph" />
       <module name="interconnection_final_project" />
       <extension name="coverage">
         <pattern>
@@ -125,10 +118,25 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="run_python.sh (1)" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/run_python.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="run_python.sh" type="ShConfigurationType" temporary="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/src/main/python/run_python.sh" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/run_python.sh" />
       <option name="SCRIPT_OPTIONS" value="" />
       <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
       <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/python" />
@@ -142,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Shell Script.run_python.sh (1)" />
         <item itemvalue="Shell Script.run_python.sh" />
         <item itemvalue="Python.main" />
         <item itemvalue="Application.PyImportable" />
         <item itemvalue="Application.ManhattanGraph" />
-        <item itemvalue="Application.org.uksw.akelm.EdgeMarkovianGraph" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +181,7 @@
       <workItem from="1673483796792" duration="1984000" />
       <workItem from="1673486165775" duration="8899000" />
       <workItem from="1673563019437" duration="4732000" />
-      <workItem from="1673636986994" duration="3430000" />
+      <workItem from="1673636986994" duration="7519000" />
     </task>
     <task id="LOCAL-00001" summary="Dynamic graphs w/o results saving">
       <created>1672257208684</created>
@@ -238,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673641061647</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Java path fix">
+      <created>1673642510484</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1673642510484</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +312,8 @@
     <MESSAGE value="classes importable from Python" />
     <MESSAGE value="Python setup script" />
     <MESSAGE value="Small Python patch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small Python patch" />
+    <MESSAGE value="Java path fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Java path fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
