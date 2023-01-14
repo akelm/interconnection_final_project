@@ -7,6 +7,9 @@ if __name__ == "__main__":
 
     dfs_dict = get_most_current_dfs()
     succ_df = pd.concat(list(dfs_dict.values()))
+    succ_df[['name', 'n', 'ttl', 'd', 'p', 'res_list']]\
+        .rename(columns={"res_list":"iter_X_info_nerv_dens_conn_X_exp"})\
+        .reset_index(drop=True).to_json("all.json",orient="table")
     joint_df = succ_df.groupby("ttl").get_group(5)
 
     for key, model_df in dfs_dict.items():
