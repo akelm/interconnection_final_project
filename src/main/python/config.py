@@ -66,7 +66,7 @@ info_plot_kwargs = dict(data_col=0, figsize=(15, 10), gridsize=(5, 4), xmax=max_
                         title_str="Fraction of the nodes with information in %s dynamic graph. Time traces were averaged over 15 experiments. The color area around curves is their respective standard deviation.",
                         fig_name="frac_info_%s.pdf", grp_cols=["ttl", "n"])
 
-nerv_plot_kwargs = dict(data_col=1, figsize=(15, 10), gridsize=(3, 4), xmax=max_iter, ymax=1.1, xlabel="iteration\nn=%d", ylabel="%s\nedge nervousness",
+nerv_plot_kwargs = dict(data_col=1, figsize=(15, 10), gridsize=(3, 4), xmax=max_iter, ymax=None, xlabel="iteration\nn=%d", ylabel="%s\nedge nervousness",
                         title_str="%s for all models. Time traces were averaged over 15 experiments. The shaded area around curves is their respective standard deviation.", fig_name="%sousness.pdf",
                         grp_cols=["name", "n"])
 
