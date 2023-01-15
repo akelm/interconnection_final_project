@@ -56,14 +56,21 @@ def plot_info(key, model_df, data_col, figsize, gridsize, xmax, ymax, xlabel, yl
             exp_mean = row["exp_mean"]
             l = np.sum(np.isfinite(exp_mean[:, data_col]))
             d = tuple(row[c] for c in legend_cols[key])
-            val = exp_mean[:l, data_col]
-            err = row["exp_std"][:l, data_col]
-            ax.plot(range(l), val, label=labels[key] % d, linewidth=1)
+            val = exp_mean[1:l, data_col]
+            err = row["exp_std"][1:l, data_col]
+            ax.plot(range(l-1), val, label=labels[key] % d, linewidth=1)
             lower = val - err
             upper = val + err
-            ax.fill_between(range(l), lower, upper, alpha=0.2)
+            ax.fill_between(range(l-1), lower, upper, alpha=0.2)
+        if key=="nerv":
+            for l in ax.lines:
+                l.set_alpha(.5)
+        if ymax is not None:
+            ax.set_ylim(0, ymax)
+        else:
+            ax.relim()
+            ax.autoscale_view()
         ax.set_xlim(0, xmax)
-        ax.set_ylim(0, ymax)
         ax.set_xlabel(xlabel % vals[-1])
         ax.set_ylabel(ylabel % vals[0])
         ax.label_outer()
@@ -80,10 +87,11 @@ def plot_info(key, model_df, data_col, figsize, gridsize, xmax, ymax, xlabel, yl
             new_ylabel.append(fst)
             ax2.set_ylabel("\n".join(new_ylabel))
             ax2.set_ylim(*ax.get_ylim())
+
             ax2.label_outer()
         ax.set_facecolor("azure")
     axes[0][3].legend(loc='upper right')
-    fig.suptitle(title_str % title_labels[key])
+    # fig.suptitle(title_str % title_labels[key])
     plt.savefig(fig_name % key, bbox_inches='tight', pad_inches=0, dpi=500)
 
 
